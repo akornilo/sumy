@@ -45,12 +45,12 @@ class AbstractSummarizer(object):
         if return_scores:
             # Dont put together into an actual summary
             return infos
-        else:
+        
         # get `count` first best rated sentences
         if not isinstance(count, ItemsCount):
             count = ItemsCount(count)
-        infos = count(infos)
-        # sort sentences by their order in document
-        infos = sorted(infos, key=attrgetter("order"))
+            infos = count(infos)
+            # sort sentences by their order in document
+            infos = sorted(infos, key=attrgetter("order"))
 
         return infos
