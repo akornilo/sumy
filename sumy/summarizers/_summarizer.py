@@ -30,7 +30,7 @@ class AbstractSummarizer(object):
     def normalize_word(self, word):
         return to_unicode(word).lower()
 
-    def _get_best_sentences(self, sentences, count, rating, return_scores=True, *args, **kwargs):
+    def _get_best_sentences(self, sentences, count, rating, *args, **kwargs):
         rate = rating
         if isinstance(rating, dict):
             assert not args and not kwargs
@@ -42,7 +42,7 @@ class AbstractSummarizer(object):
         # sort sentences by rating in descending order
         infos = sorted(infos, key=attrgetter("rating"), reverse=True)
 
-        if return_scores:
+        if True:
             # Dont put together into an actual summary
             return infos
         
